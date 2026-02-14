@@ -1,12 +1,10 @@
 # 🔐 Password Security Tool
 
-```
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
 ![CLI](https://img.shields.io/badge/Interface-CLI-lightgrey)
 ![Security](https://img.shields.io/badge/Security-SHA--256-orange)
-```
 
 CLI-инструмент на Python для генерации и анализа надёжности паролей с возможностью сохранения отчётов в TXT и PDF формате.
 
@@ -201,4 +199,5 @@ strength: Strong
 📄 Лицензия
 
 **MIT License**
+
 

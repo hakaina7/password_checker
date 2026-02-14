@@ -1,6 +1,7 @@
 import argparse
 import os
 import getpass
+import hashlib
 from datetime import datetime
 from colorama import Fore, init
 from checker import check_password
@@ -10,11 +11,25 @@ from pdf_report import save_pdf_report
 init(autoreset=True)
 
 
+def mask_password(password):
+    if len(password) <= 4:
+        return "*" * len(password)
+    return password[:2] + "*" * (len(password) - 4) + password[-2:]
+
+
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+
 def format_report(password, result):
+    masked = mask_password(password)
+    hashed = hash_password(password)
+
     lines = []
     lines.append("PASSWORD SECURITY REPORT")
     lines.append("=" * 40)
-    lines.append(f"Password: {password}")
+    lines.append(f"Password (masked): {masked}")
+    lines.append(f"SHA-256: {hashed}")
     lines.append(f"Generated at: {datetime.now()}")
     lines.append("-" * 40)
 

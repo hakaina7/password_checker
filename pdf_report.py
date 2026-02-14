@@ -5,11 +5,16 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import A4
 from datetime import datetime
 import html
+import os
 
 
 def save_pdf_report(password, result):
+    os.makedirs("reports", exist_ok=True)
+
     filename = f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
-    doc = SimpleDocTemplate(filename, pagesize=A4)
+    filepath = os.path.join("reports", filename)
+
+    doc = SimpleDocTemplate(filepath, pagesize=A4)
     elements = []
 
     styles = getSampleStyleSheet()
@@ -36,4 +41,5 @@ def save_pdf_report(password, result):
         elements.append(Spacer(1, 0.15 * inch))
 
     doc.build(elements)
-    return filename
+
+    return filepath

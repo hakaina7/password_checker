@@ -1,4 +1,5 @@
 import argparse
+import os
 from datetime import datetime
 from colorama import Fore, init
 from checker import check_password
@@ -23,10 +24,15 @@ def format_report(password, result):
 
 
 def save_txt_report(report_text):
+    os.makedirs("reports", exist_ok=True)
+
     filename = f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-    with open(filename, "w", encoding="utf-8") as f:
+    filepath = os.path.join("reports", filename)
+
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(report_text)
-    return filename
+
+    return filepath
 
 
 def print_colored_result(result):

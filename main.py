@@ -1,5 +1,6 @@
 import argparse
 import os
+import getpass
 from datetime import datetime
 from colorama import Fore, init
 from checker import check_password
@@ -55,6 +56,7 @@ def main():
 
     parser.add_argument("--generate", type=int, help="Generate secure password")
     parser.add_argument("--check", type=str, help="Check password strength")
+    parser.add_argument("--hidden", action="store_true", help="Enter password in hidden mode")
     parser.add_argument("--save", action="store_true", help="Save report as TXT")
     parser.add_argument("--pdf", action="store_true", help="Save report as PDF")
 
@@ -72,8 +74,12 @@ def main():
         password = args.check
         result = check_password(password)
 
+    elif args.hidden:
+        password = getpass.getpass("Enter password (hidden): ")
+        result = check_password(password)
+
     else:
-        password = input("Enter password: ")
+        password = getpass.getpass("Enter password (hidden): ")
         result = check_password(password)
 
     print_colored_result(result)

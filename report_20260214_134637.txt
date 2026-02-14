@@ -1,0 +1,12 @@
+PASSWORD SECURITY REPORT
+========================================
+Password: StrongPass123!
+Generated at: 2026-02-14 13:46:37.494003
+----------------------------------------
+length: 14
+has_lowercase: True
+has_uppercase: True
+has_digits: True
+has_special: True
+is_common: False
+entropy: 91.76

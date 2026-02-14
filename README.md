@@ -1,5 +1,13 @@
 # 🔐 Password Security Tool
 
+```
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
+![CLI](https://img.shields.io/badge/Interface-CLI-lightgrey)
+![Security](https://img.shields.io/badge/Security-SHA--256-orange)
+```
+
 CLI-инструмент на Python для генерации и анализа надёжности паролей с возможностью сохранения отчётов в TXT и PDF формате.
 
 Проект демонстрирует практические навыки разработки CLI-приложений, работы с безопасностью и генерации документов.
@@ -18,6 +26,24 @@ CLI-инструмент на Python для генерации и анализа
   - TXT
   - PDF  
 - Автоматическое создание папки `reports/`
+
+---
+
+## 🧠 Архитектура
+
+Проект построен по модульному принципу:
+
+```
+password-security-tool/
+│
+├── main.py # CLI-интерфейс и логика управления
+├── checker.py # Модуль анализа сложности
+├── generator.py # Криптостойкая генерация паролей
+├── pdf_report.py # Генерация PDF-отчёта
+├── requirements.txt
+├── .gitignore
+└── reports/
+```
 
 ---
 
@@ -156,23 +182,23 @@ strength: Strong
 
 ---
 
-## 🎯 Цель проекта
+## 🎯 Назначение проекта
 
-Проект создан для демонстрации навыков:
+- Добавление unit-тестов (pytest)
 
-- разработки CLI-приложений
+- Docker-контейнеризация
 
-- безопасной работы с пользовательскими данными
+- CI/CD (GitHub Actions)
 
-- генерации PDF-документов
+- Публикация как pip-пакета
 
-- организации структуры Python-проекта
+- Добавление проверки пароля через API утечек (например, HIBP)
 
-- соблюдения best practices в области безопасности
-
+ соблюдении best practices
 
 ---
 
 📄 Лицензия
 
 **MIT License**
+
